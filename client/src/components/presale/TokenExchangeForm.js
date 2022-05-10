@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import Web3 from '../../connection/web3';
+import Web3Context from '../../store/web3-context';
 /*
 import { FaBitcoin } from 'react-icons/fa';
 import Countdown from 'react-countdown';
@@ -14,6 +16,7 @@ import { BsCalendar2CheckFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 */
 import 'react-datepicker/dist/react-datepicker.css';
+import web3 from '../../connection/web3';
 // import AOS from 'aos';
 
 // import MetaMaskLoader from '../general/MetaMaskLoader';
@@ -22,11 +25,20 @@ function TokenExchangeForm() {
 
     const [amount_bnb, setAmountBNB] = useState();
     const [amount_asixmusic, setAmountASIXMUSIC] = useState();
+    const web3Ctx = useContext(Web3Context);
+
     const handleAmountBNBChange = (e) => {
         setAmountBNB(e.target.value);
         setAmountASIXMUSIC(e.target.value * 1000);
     };
-    const handleBuyButtonSubmit = (e) => {
+    const handleBuyButtonSubmit = async (e) => {
+        const accounts = await web3Ctx.loadAccount(web3);
+        const networkId = await web3Ctx.loadNetworkId(web3);
+        const networkData = require('../../contracts/AsixTokenV3.json').networks[networkId];
+        
+        if(networkData) {
+            const test = new Web3.eth.Contract(require('../../contracts/AsixTokenV3.json').abi, networkData.address);
+        }
     }
 
     return (
