@@ -1,0 +1,33 @@
+.introduce-clip-box {
+    padding: 20px;
+    border: 1px solid $blue;
+    border-radius: 5px;
+}
+.introduce-clip-box:hover {
+    padding: 20px;
+    border: 1px solid $blue;
+    border-radius: 5px;
+    margin-top:-30px;
+    transition: all .5s ease-in-out;
+    cursor : pointer;
+}
+
+.main-logo-animation {
+    -webkit-animation: logo-animation 1.5s ease-in-out infinite alternate;
+}
+
+.token-title {
+    color : $yellow;
+}
+.token-intro-text {
+    color : $white;
+}
+
+@keyframes logo-animation {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
