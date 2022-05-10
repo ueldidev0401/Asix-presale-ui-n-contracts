@@ -32,13 +32,13 @@ function TokenExchangeForm() {
         setAmountASIXMUSIC(e.target.value * 1000);
     };
     const handleBuyButtonSubmit = async (e) => {
-        const accounts = await web3Ctx.loadAccount(web3);
-        const networkId = await web3Ctx.loadNetworkId(web3);
-        const networkData = require('../../contracts/AsixTokenV3.json').networks[networkId];
+        // const accounts = await web3Ctx.loadAccount(web3);
+        // const networkId = await web3Ctx.loadNetworkId(web3);
+        // const networkData = require('../../contracts/AsixTokenV3.json').networks[networkId];
         
-        if(networkData) {
-            const test = new Web3.eth.Contract(require('../../contracts/AsixTokenV3.json').abi, networkData.address);
-        }
+        // if(networkData) {
+        //     const test = new Web3.eth.Contract(require('../../contracts/AsixTokenV3.json').abi, networkData.address);
+        // }
     }
 
     return (
