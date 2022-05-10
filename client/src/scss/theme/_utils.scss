@@ -8,6 +8,8 @@
    Text utils 
    ------------------------
 */
+@use "sass:math";
+
 
 .text-uppercase {
     @include uppercase;
@@ -83,12 +85,11 @@
     Opacity helpers - .opacity-[1-9]   
     ------------------------
 */
-
 $opacity: 1 2 3 4 5 6 7 8 9 10;
 
 @each $current-opacity in $opacity {
     .opacity-#{$current-opacity} {
-        opacity: #{$current-opacity/10};
+        opacity: math.div($current-opacity, 10);
     }
 }
 
