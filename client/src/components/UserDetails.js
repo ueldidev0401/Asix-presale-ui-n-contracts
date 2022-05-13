@@ -96,9 +96,9 @@ function UserInfo() {
       {metaMaskOpened ? <MetaMaskLoader /> : null}
       <div className="row my-5 pt-4">
         <div className="col-lg-9">
-          <h1 data-aos="fade-up">Welcome! {fullName}</h1>
+          <h1 className='token-title' data-aos="fade-up">Welcome! {fullName}</h1>
           <p
-            className="text-muted lead"
+            className="token-intro-text lead"
             data-aos="fade-up"
             data-aos-delay="100"
           >

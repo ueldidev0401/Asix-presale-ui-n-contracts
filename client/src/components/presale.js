@@ -21,7 +21,9 @@ function Presale() {
     if (userCtx.userIsLoading) {
         return <FetchingDataLoader />;
     }
-
+    if(!tokenCtx.activePeriod){
+        return <FetchingDataLoader />;
+    }
     return (
         <>
             <div className='row my-5 gy-5 align-items-center'>
@@ -40,7 +42,7 @@ function Presale() {
             </div>
 
             <div className='row'>
-                <div className='col-lg-8'>
+                <div className='col-lg-9'>
                     <div className='row'>
                         <div className='col-lg-4'>
                             <div className='card shadow-lg mb-4' data-aos='fade-up'>
@@ -109,10 +111,10 @@ function Presale() {
             </div>
 
             <div className='row'>
-                <div className='col-lg-8'>
+                <div className='col-lg-9'>
                     <BuyForm />
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-3">
                     <TokenExchangeForm />
                 </div>                    
             </div>

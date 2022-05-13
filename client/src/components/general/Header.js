@@ -4,10 +4,30 @@ import { appSettings } from '../../helpers/settings';
 import { Jazzicon } from '@ukstv/jazzicon-react';
 import Web3Context from '../../store/web3-context';
 import UserContext from '../../store/user-context';
+import FetchingDataLoader from './FetchingDataLoader';
+import { FaUnderline } from 'react-icons/fa';
 
 function Navbar() {
     const web3Ctx = useContext(Web3Context);
     const userCtx = useContext(UserContext);
+    
+    if(web3Ctx.account) {
+        var account = web3Ctx.account.slice(0, 6) + "..." + web3Ctx.account.slice(web3Ctx.account.length - 4, web3Ctx.account.length);
+    }
+
+    if(!userCtx){
+        return <FetchingDataLoader />
+    } else {
+        if(userCtx.userInformation) {
+            if(userCtx.userInformation.fullName === '') {
+                var username = account;
+                var role = "unRegistered";
+            } else {
+                var username = userCtx.userInformation.fullName;
+                var role = "";
+            }
+        }
+    }
     return (
         <header className='main-header mb-5'>
             <div className='container pt-3'>
@@ -67,14 +87,16 @@ function Navbar() {
                         </div>
                         <div className='text ms-3 d-none d-lg-block'>
                             <h6 className='user-dropdown-name'>
-                                {userCtx.userInformation && userCtx.userInformation.fullName !== ''
-                                    ? userCtx.userInformation.fullName
-                                    : 'Random User'}
+                                {/* {userCtx.userInformation && userCtx.userInformation.fullName === ''
+                                    ? account
+                                    : "Random User"} */}
+                                {username}
                             </h6>
                             <p className='user-dropdown-status text-sm text-muted'>
-                                {userCtx.userInformation && userCtx.userInformation.role !== ''
+                                {/* {userCtx.userInformation && userCtx.userInformation.role !== undefined
                                     ? userCtx.userInformation.role
-                                    : 'Unregistered'}
+                                    : 'Unregistered'} */}
+                                {role}
                             </p>
                         </div>
                     </Link>

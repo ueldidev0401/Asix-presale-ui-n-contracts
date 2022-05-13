@@ -22,7 +22,7 @@ function NetworkAlert() {
                                 Please switch active network on your MetaMask account to{' '}
                             </p>
                             <a
-                                href='#'
+                                href='https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain'
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 className='btn btn-primary py-2'

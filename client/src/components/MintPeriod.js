@@ -65,8 +65,8 @@ function MintToken() {
                         </div>
                     )}
 
-                    <h1 data-aos='fade-up'>Create a Crypto Token Sale Period</h1>
-                    <p className='text-muted lead' data-aos='fade-up' data-aos-delay='100'>
+                    <h1 className='token-title' data-aos='fade-up'>Create a Crypto Token Sale Period</h1>
+                    <p className='token-intro-text lead' data-aos='fade-up' data-aos-delay='100'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                 </div>

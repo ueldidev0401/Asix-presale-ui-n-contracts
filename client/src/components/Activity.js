@@ -21,9 +21,9 @@ function Activity() {
     return (
         <>
             <div className='row my-5 pt-4'>
-                <div className='col-lg-9 mx-auto text-center'>
-                    <h1 data-aos='fade-up'>Transactions Activity</h1>
-                    <p className='text-muted lead' data-aos='fade-up' data-aos-delay='100'>
+                <div className='col-lg-9mx-auto text-center'>
+                    <h1 className="token-title" data-aos='fade-up'>Transactions Activity</h1>
+                    <p className='token-intro-text lead' data-aos='fade-up' data-aos-delay='100'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     </p>
                 </div>

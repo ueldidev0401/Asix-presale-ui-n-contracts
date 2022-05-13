@@ -23,6 +23,8 @@ import Footer from './components/general/Footer'
 import NetworkAlert from './components/general/NetworkAlert'
 
 import * as bootstrap from 'bootstrap'
+import CheckWhitelist from './components/general/checkWhitelist'
+import FetchingDataLoader from './components/general/FetchingDataLoader'
 window.bootstrap = bootstrap
 
 function App() {
@@ -62,7 +64,6 @@ function App() {
         UserInfo,
         userDeployedNetwork,
       )
-
       // If Token contract Loaded
       if (tokenContract) {
         tokenCtx.loadTotalSupply(tokenContract)
@@ -120,7 +121,6 @@ function App() {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
   if (networkError) {
     return <NetworkAlert />
   }
@@ -137,7 +137,7 @@ function App() {
               <Route
                 path="/mint"
                 element={
-                  Boolean(userCtx.appOwner === web3Ctx.account) ? (
+                  Boolean(userCtx.appOwner !== web3Ctx.account) ? (
                     <MintPeriod />
                   ) : (
                     <NotFound />
@@ -159,6 +159,8 @@ function App() {
               <Route path="/users" element={<Users />} />
               <Route path="/users/:address" element={<UserSingle />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="/nowhitelist" element={<CheckWhitelist />} />
+              <Route path="/networkerror" element={<NetworkAlert />} />
             </Routes>
           </div>
         </div>

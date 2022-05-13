@@ -13,7 +13,10 @@
 }
 
 .main-logo-animation {
-    -webkit-animation: logo-animation 1.5s ease-in-out infinite alternate;
+    -webkit-animation: main-logo 1.5s ease-in-out infinite alternate;
+}
+.fetching-logo-animation {
+    -webkit-animation: fetching-logo 1.5s ease-in-out infinite alternate;
 }
 
 .token-title {
@@ -23,11 +26,19 @@
     color : $white;
 }
 
-@keyframes logo-animation {
+@keyframes main-logo {
     0% {
         transform: scale(0.9);
     }
     100% {
         transform: scale(1);
+    }
+}
+@keyframes fetching-logo {
+    0% {
+        transform: translateX(0.1em);
+    }
+    100% {
+        transform: translateY(1.5em);
     }
 }
